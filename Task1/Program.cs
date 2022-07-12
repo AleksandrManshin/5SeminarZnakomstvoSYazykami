@@ -8,17 +8,30 @@ void Zadacha31()
     FillArray(array, -5, 5);
     PrintArray(array);
 
-    int sumNegativ = 0;
-    int sumPositiv = 0;
+    Console.WriteLine("Сумма положительных элементов массива: " + SumPositive(array));
+    Console.WriteLine("Сумма отрицательных элементов массива: " + SumNegative(array));
+}
 
+int SumNegative(int [] array)
+{ 
+    int sumNegative = 0;
+    
     for (int i = 0; i < array.Length; i++)
     {
-        if(array [i] > 0) sumPositiv += array[i];
-        else sumNegativ += array[i];
+        if(array [i] <= 0) sumNegative += array[i];
     }
+    return sumNegative;
+}
 
-    Console.WriteLine("Сумма положительных элементов массива: " + sumPositiv);
-    Console.WriteLine("Сумма отрицательных элементов массива: " + sumNegativ);
+int SumPositive(int [] array)
+{ 
+    int sumPositive = 0;
+    
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(array [i] > 0) sumPositive += array[i];
+    }
+    return sumPositive;
 }
 
 void FillArray(int[] array, int startNumber = 0, int finishNumber = 0)
