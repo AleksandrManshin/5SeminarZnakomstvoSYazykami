@@ -3,9 +3,9 @@
 // 3; массив [6, 7, 19, 345, 3] -> да
 
 void Zadacha33()
-{ 
+{
     int size = 5;
-    int [] arr = new int [size];
+    int[] arr = new int[size];
 
     FillArray(arr);
     Console.WriteLine("Массив:");
@@ -16,38 +16,56 @@ void Zadacha33()
 
 }
 
-void FillArray(int [] array)
-{ 
+void FillArray(int[] array)
+{
     Random random = new Random();
-    for(int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        array [i] = random.Next(1,10);
+        array[i] = random.Next(1, 10);
     }
 }
 
-void PrintArray(int [] array)
+void PrintArray(int[] array)
 {
-   for(int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(array [i] + "\t");
-    } 
+        Console.Write(array[i] + "\t");
+    }
 }
 
-void Find4(int [] array, int numb)
-{
-    int count = 0;
-    for(int i = 0; i < array.Length; i++)
-    {
-        
-        if(array [i] == numb)
-        {
-            count++;
-        }
-    }
-    
-    if(count == 1) Console.WriteLine($"Число {numb} встречается в массиве {count} раз");
-    else if(count > 1) Console.WriteLine($"Число {numb} встречается в массиве {count} раза");
-    else Console.WriteLine($"Числа {numb} нету в массиве");
-}
+// void Find4(int[] array, int numb)
+// {
+//     int count = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+
+//         if (array[i] == numb)
+//         {
+//             count++;
+//         }
+//     }
+
+//     if (count == 1) Console.WriteLine($"Число {numb} встречается в массиве {count} раз");
+//     else if (count > 1) Console.WriteLine($"Число {numb} встречается в массиве {count} раза");
+//     else Console.WriteLine($"Числа {numb} нету в массиве");
+// }
 
 Zadacha33();
+
+
+void Find4(int[] array, int numb)
+{
+    bool flag = false;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] == numb)
+        {
+            flag = true;
+            break;
+        }
+    }
+
+    if(flag) Console.WriteLine($"Число {numb} есть в массиве");
+    else Console.WriteLine($"Числа {numb} в массиве нету");
+}
