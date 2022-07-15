@@ -2,19 +2,42 @@
 // 4; массив [6, 7, 19, 345, 3] -> нет
 // 3; массив [6, 7, 19, 345, 3] -> да
 
+
 void Zadacha33()
 {
-    int size = 5;
+    Random random = new Random();
+    int size = random.Next(4, 12);
     int[] arr = new int[size];
 
     FillArray(arr);
     Console.WriteLine("Массив:");
     PrintArray(arr);
     Console.WriteLine();
-    Find4(arr, 3);
+    Console.WriteLine("Введите искомое число:");
+    int number = Convert.ToInt32(Console.ReadLine());
+    string part = "не";
+    for(int i = 0; i < arr.Length; i++)
+    {
+        if(arr[i] == number) part = "";
+    }
 
-
+    Console.WriteLine("искомое число" + part + " содержится в массиве");
 }
+
+
+// void Zadacha33()
+// {
+//     int size = 5;
+//     int[] arr = new int[size];
+
+//     FillArray(arr);
+//     Console.WriteLine("Массив:");
+//     PrintArray(arr);
+//     Console.WriteLine();
+//     Find4(arr, 3);
+
+
+// }
 
 void FillArray(int[] array)
 {
@@ -53,19 +76,19 @@ void PrintArray(int[] array)
 Zadacha33();
 
 
-void Find4(int[] array, int numb)
-{
-    bool flag = false;
+// void Find4(int[] array, int numb)
+// {
+//     bool flag = false;
 
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] == numb)
-        {
-            flag = true;
-            break;
-        }
-    }
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] == numb)
+//         {
+//             flag = true;
+//             break;
+//         }
+//     }
 
-    if(flag) Console.WriteLine($"Число {numb} есть в массиве");
-    else Console.WriteLine($"Числа {numb} в массиве нету");
-}
+//     if(flag) Console.WriteLine($"Число {numb} есть в массиве");
+//     else Console.WriteLine($"Числа {numb} в массиве нету");
+// }
